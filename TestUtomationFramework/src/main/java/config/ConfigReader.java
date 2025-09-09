@@ -5,7 +5,75 @@ import java.util.Properties;
 
 
 //This class is responsible for loading and reading test data from configuration files
-public class ConfigReader {
+public class ConfigReader extends FileBase{
+	
+	
+	
+//get file path
+	private static final String file_Path = "";
+
+	
+	// Declare a Properties object to store configuration data
+	private static Properties properties;
+
+
+	public ConfigReader() {
+
+		super(file_Path);
+
+	}
+
+	
+	
+	//Static block used to load configuration file and read test data.
+		//Runs once when the class is first loaded.
+	static {
+
+		try {
+
+			FileInputStream fileStream = new FileInputStream(file_Path);
+
+			properties = new Properties();
+
+			properties.load(fileStream);
+
+
+		}catch(Exception e) {
+
+			e.getStackTrace();
+
+			e.printStackTrace();
+
+		}
+
+	}
+
+
+
+@Override
+public void loadFile() {
+	
+	 // no-op, since static block already handled it
+	
+}
+
+
+	
+
+
+	//this method will get test data value as a string
+	public static String getConfigData(String testValue) {
+
+		return properties.getProperty(testValue);
+
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -34,53 +102,6 @@ public class ConfigReader {
 	 * The method relies on the fact that the static block has already loaded the file.
 	 * So the connection to the file is indirect: it happened during class loading, not in the method itself.
 	 * */
-
-
-
-	// Declare a Properties object to store configuration data
-	private static Properties properties;
-
-	//Static block used to load configuration file and read test data.
-	//Runs once when the class is first loaded.
-	static {
-
-		try {
-
-
-			// Create a FileInputStream to read data from the specified file path
-			FileInputStream fileInput = new FileInputStream("config file path");
-
-
-			//Initialize the Properties object to work with the configuration file
-			properties = new Properties(); 
-
-
-			//Initialize the Properties object to work with the configuration file
-			properties.load(fileInput);
-			
-			
-			
-	
-
-		}catch(Exception e) {
-
-			e.getStackTrace();
-
-			e.printStackTrace();
-
-		}	
-	}
-	
-	
-	
-	//this method will get test data value as a string
-	public static String getConfigData(String testValue) {
-		
-		return properties.getProperty(testValue);
-		
-	}
-
-
 
 
 }
