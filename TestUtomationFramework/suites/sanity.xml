@@ -1,0 +1,13 @@
+
+<suite name="Sanity Suite">
+    <test name="Sanity Tests">
+        <groups>
+            <run>
+                <include name="sanity"/>
+        </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+</suite>
