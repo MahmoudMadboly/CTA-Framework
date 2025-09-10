@@ -1,4 +1,4 @@
-package config;
+package configSetup;
 
 public abstract class FileBase {
 	

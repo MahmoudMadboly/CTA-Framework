@@ -1,4 +1,4 @@
-package config;
+package configSetup;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
