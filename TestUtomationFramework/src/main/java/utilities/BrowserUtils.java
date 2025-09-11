@@ -60,5 +60,5 @@ public class BrowserUtils {
 		public void scrollDownGradually() {}
 		
 		
-		public void scrollUpGradually() {}
+		public void scrollUGradually() {}
 }
